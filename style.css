@@ -180,6 +180,15 @@ button.btn:active::before {
   transform: translate3d(0, 0, -1em);
 }
 
+.copy__btns {
+  display: flex;
+  gap: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
 .dash__title {
   margin: 0;
   margin-bottom: 15px;
