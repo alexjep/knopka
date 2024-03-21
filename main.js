@@ -32,8 +32,6 @@ btnCopy.addEventListener('click', function (){
   result.innerHTML = ''
 })
 
-
-
 btnGPH.addEventListener('click', function(){
   copy(textGPH)
 })
@@ -41,3 +39,22 @@ btnGPH.addEventListener('click', function(){
 btnZP.addEventListener('click', function(){
   copy(textZP)
 })
+
+// Функция для сохранения текста из textarea в localStorage
+function saveTextareaContent() {
+  localStorage.setItem('textareaContent', textarea.value);
+}
+
+// Функция для загрузки текста из localStorage в textarea
+function loadTextareaContent() {
+  let savedContent = localStorage.getItem('textareaContent');
+  if (savedContent) {
+    textarea.value = savedContent;
+  }
+}
+
+// Вызываем функцию загрузки при загрузке страницы
+window.addEventListener('load', loadTextareaContent);
+
+// Вызываем функцию сохранения при изменении текста в textarea
+textarea.addEventListener('input', saveTextareaContent);
