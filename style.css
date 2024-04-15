@@ -86,6 +86,7 @@ input {
   width: 100%;
   display: flex;
   gap: 30px;
+  margin-bottom: 40px;
 }
 
 .result {
@@ -180,6 +181,20 @@ button.btn:active::before {
   transform: translate3d(0, 0, -1em);
 }
 
+button.btn.btnTA {
+  background: #ddb3b3;
+  border: 2px solid #a46262;
+}
+
+button.btn.btnTA::before {
+  background: #c78888;
+  box-shadow: 0 0 0 2px #a46262, 0 0.625em 0 0 #e79797;
+}
+
+button.btn.btnTA:hover {
+  background: #e38484;
+}
+
 .copy__btns {
   display: flex;
   gap: 30px;
@@ -198,6 +213,43 @@ button.btn:active::before {
 .textarea {
   width: 100%;
   padding: 5px;
+  margin-bottom: 10px;
   border-radius: 1em;
   border: 2px solid #00000070;
+}
+
+.scanner-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.input-file {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.input-file-icon {
+  cursor: pointer;
+  display: block;
+  padding: 20px;
+  border: 2px solid #6292a4;
+  border-radius: 10px;
+  background: whitesmoke;
+}
+
+.input-file-icon:hover {
+  background: #e8e8e8;
+}
+
+.scanner-group input {
+  margin-right: 50px;
+  height: 40px;
+  color: cadetblue;
+}
+
+.logo-img {
+  height: 40px;
 }

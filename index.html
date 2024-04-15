@@ -7,6 +7,7 @@
   <link rel="icon" type="image/gif" href="favicon/arrow.png">
   <link rel="stylesheet" href="style.css">
   <script src="./main.js" defer></script>
+  <script src="./scanner.js" defer></script>
 </head>
 <body>
   <section class="path">
@@ -23,6 +24,15 @@
         <div class="result" id="result"> </div>
         <button class="btn" id="btnCopy">Копирувати</button>
       </div>
+      <div class="scanner-group" id="scannerGroup">
+        <input type="file" id="file" class="input-file" onchange="handleFileUpload()">
+        <label for="file">
+          <span class="input-file-icon" id="fileIcon">
+            <img src="./icon/icon-file2.png" alt="Выбрать файл">
+          </span>
+        </label>
+        <div class="bank-icon-wrapper" id="bankIconWrapper"></div>
+      </div>
     </div>
   </section>
 
@@ -36,6 +46,11 @@
         <button class="btn" id="btnZP">ЗП проект</button>
         <div class="hidden" id="textPP">Платёжка загружена в банк.</div>
         <button class="btn" id="btnPP">Платёжка</button>
+        <div class="hidden" id="textVK">Ведомость на выпуск карты загружена в банк.
+Тип карты: МИР Классическая.
+Место выдачи: г. Череповец, б-р Доменщиков, д.29 (Доп.офис №8638/0145).
+Если всё верно, то для отправки заявки ведомость необходимо подписать. </div>
+        <button class="btn" id="btnVK">Выпуск карты</button>
       </div>
     </div>
   </section>
@@ -43,7 +58,8 @@
   <section class="dash">
     <div class="container">
       <h3 class="dash__title">Для заметок</h3>
-      <textarea class="textarea" name="" id="" cols="30" rows="10"></textarea>
+      <textarea class="textarea" name="" id="textarea" cols="30" rows="10"></textarea>
+      <button class="btn btnTA" id="btnClearTA">Очистить заметки</button>
     </div>
   </section>
 </body>
