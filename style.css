@@ -232,16 +232,52 @@ button.btn.btnTA:hover {
 }
 
 .input-file-icon {
+  height: 50px;
+  width: 50px;
   cursor: pointer;
   display: block;
-  padding: 20px;
+  padding: 7px;
   border: 2px solid #6292a4;
   border-radius: 10px;
-  background: whitesmoke;
+  background: #97cce7;
+  transition: transform 0.15s;
+  transform-style: preserve-3d;
+}
+
+.input-file-icon::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #6fb2c9;
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px #6292a4, 0 0.625em 0 0 #97cce7;
+  transform: translate3d(0, 0.45em, -1em);
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 
 .input-file-icon:hover {
-  background: #e8e8e8;
+  background: #6fb2c9;
+  transform: translate(0, 0.25em);
+}
+
+.input-file-icon:hover::before {
+  box-shadow: 0 0 0 2px #6292a4, 0 0.5em 0 0 #97cce7;
+  transform: translate3d(0, 0.5em, -1em);
+}
+
+.input-file-icon:active {
+  background: #6fb2c9;
+  transform: translate(0em, 0.75em);
+}
+
+.input-file-icon:active::before {
+  box-shadow: 0 0 0 2px #6292a4, 0 0 #97cce7;
+  transform: translate3d(0, 0, -1em);
 }
 
 .scanner-group input {
@@ -250,6 +286,16 @@ button.btn.btnTA:hover {
   color: cadetblue;
 }
 
+.scanner-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.bank-icon-wrapper {
+  height: 50px;
+  width: 50px;
+}
+
 .logo-img {
-  height: 40px;
+  max-height: 100%;
 }

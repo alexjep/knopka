@@ -7,6 +7,9 @@ function handleFileUpload() {
 
   const reader = new FileReader();
 
+  let date = new Date();
+  date = `${date.getHours()}:${String(date.getMinutes()).padStart(2, "0")}`;
+
   reader.onload = function (event) {
     // bankIconWrapper.innerHTML = "";
     const fileContent = event.target.result;
@@ -23,28 +26,32 @@ function handleFileUpload() {
       ) {
         const img = document.createElement("img");
         img.src = "./logos/alfa.png";
-        img.alt = "A";
+        img.alt = "Alfa";
         img.classList.add("logo-img");
         bankIconWrapper.appendChild(img);
-        console.log("Альфа 045004774");
+        console.log("Альфа");
         imageAdded = true; // Устанавливаем флаг, чтобы изображение добавлялось только один раз
       }
       if (!imageAdded && line.includes("044525974")) {
         const img = document.createElement("img");
         img.src = "./logos/tinkoff.png";
-        img.alt = "A";
+        img.alt = "Tinkoff";
         img.classList.add("logo-img");
         bankIconWrapper.appendChild(img);
-        console.log("Тинькофф");
+        console.log(`Тинькофф`);
         imageAdded = true;
       }
       if (
         !imageAdded &&
-        (line.includes("047102651") || line.includes("044525225"))
+        (line.includes("047102651") ||
+          line.includes("044525225") ||
+          line.includes("044030653") ||
+          line.includes("049205603") ||
+          line.includes("046015602"))
       ) {
         const img = document.createElement("img");
         img.src = "./logos/sber.png";
-        img.alt = "S";
+        img.alt = "Sber";
         img.classList.add("logo-img");
         bankIconWrapper.appendChild(img);
         console.log("Сбер");
@@ -58,7 +65,7 @@ function handleFileUpload() {
       ) {
         const img = document.createElement("img");
         img.src = "./logos/tochka.png";
-        img.alt = "S";
+        img.alt = "Tochka";
         img.classList.add("logo-img");
         bankIconWrapper.appendChild(img);
         console.log("Точка");
@@ -67,15 +74,24 @@ function handleFileUpload() {
       if (!imageAdded && line.includes("044525411")) {
         const img = document.createElement("img");
         img.src = "./logos/vtb.png";
-        img.alt = "A";
+        img.alt = "VTB";
         img.classList.add("logo-img");
         bankIconWrapper.appendChild(img);
         console.log("ВТБ");
         imageAdded = true;
       }
+      if (!imageAdded && line.includes("044525700")) {
+        const img = document.createElement("img");
+        img.src = "./logos/raiffeisen.png";
+        img.alt = "Raiffeisen";
+        img.classList.add("logo-img");
+        bankIconWrapper.appendChild(img);
+        console.log("Райфайзен");
+        imageAdded = true;
+      }
     });
 
-    console.log("File scanning complete");
+    console.log(`File scanning complete  ${date}`);
   };
 
   reader.readAsText(file);
