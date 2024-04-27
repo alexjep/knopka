@@ -10,11 +10,13 @@ let btnZP = document.getElementById("btnZP");
 let btnPP = document.getElementById("btnPP");
 let btnVK = document.getElementById("btnVK");
 let btnClearTA = document.getElementById("btnClearTA");
+let btnZS = document.getElementById("btnZS");
 
 let textGPH = document.getElementById("textGPH");
 let textZP = document.getElementById("textZP");
 let textPP = document.getElementById("textPP");
 let textVK = document.getElementById("textVK");
+let textZS = document.getElementById("textZS");
 
 input.oninput = function () {
   let path = input.value.trim();
@@ -32,6 +34,12 @@ function copy(text) {
       alert("Error copying text. Please try again.");
     });
 }
+
+document.querySelector("body").onclick = function (e) {
+  if (e.target.className != "bank-link-closebtn") return;
+  let item = e.target.closest(".bank-link-item");
+  item.remove();
+};
 
 btnCopy.addEventListener("click", function () {
   copy(result);
@@ -54,6 +62,10 @@ btnPP.addEventListener("click", function () {
 
 btnVK.addEventListener("click", function () {
   copy(textVK);
+});
+
+btnZS.addEventListener("click", function () {
+  copy(textZS);
 });
 
 // Функция для сохранения текста из textarea в localStorage

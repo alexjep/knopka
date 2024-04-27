@@ -15,14 +15,12 @@
       <div class="input-group">
         <label for="myInput" class="input-label">Исходный</label>
         <input type="text" class="input" id="myInput">
-        <!-- <button class="btn" id="btnAction">Вжух</button> -->
-        <!-- <button class="btn" id="btnClear">Очищаем</button> -->
       </div>
 
       <div class="result-group">
         <div class="result-label">Выходный</div>
-        <div class="result" id="result"> </div>
         <button class="btn" id="btnCopy">Копирувати</button>
+        <div class="result" id="result"> </div>
       </div>
       <div class="scanner-group" id="scannerGroup">
         <input type="file" id="file" class="input-file" onchange="handleFileUpload()">
@@ -50,7 +48,9 @@
 Тип карты: МИР Классическая.
 Место выдачи: г. Череповец, б-р Доменщиков, д.29 (Доп.офис №8638/0145).
 Если всё верно, то для отправки заявки ведомость необходимо подписать. </div>
-        <button class="btn" id="btnVK">Выпуск карты</button>
+        <button class="btn" id="btnVK">Вед. на вып. карты</button>
+        <div class="hidden" id="textZS">Заявка на выпуск карты в банке сформирована. Как только анкета будет проверена, представители банка свяжутся с сотрудником для согласования деталей доставки.</div>
+        <button class="btn" id="btnZS">Заявка сформирована</button>
       </div>
     </div>
   </section>

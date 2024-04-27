@@ -1,97 +1,148 @@
 const bankIconWrapper = document.getElementById("bankIconWrapper");
-const scannerGroup = document.getElementById("scannerGroup");
+
+const bankData = {
+  "044525593": {
+    name: "Альфа",
+    logo: "./logos/alfa.png",
+    url: "https://zp.alfabank.ru/msos-ext/protected/index.jsf",
+  },
+  "044030786": {
+    name: "Альфа",
+    logo: "./logos/alfa.png",
+    url: "https://zp.alfabank.ru/msos-ext/protected/index.jsf",
+  },
+  "045004774": {
+    name: "Альфа",
+    logo: "./logos/alfa.png",
+    url: "https://zp.alfabank.ru/msos-ext/protected/index.jsf",
+  },
+  "044525974": {
+    name: "Tinkoff",
+    logo: "./logos/tinkoff.png",
+    url: "https://sme.tinkoff.ru/",
+  },
+  "047102651": {
+    name: "Сбер",
+    logo: "./logos/sber.png",
+    url: "https://sbi.sberbank.ru:9443/ic/ufs/login.html",
+  },
+  "041909644": {
+    name: "Сбер",
+    logo: "./logos/sber.png",
+    url: "https://sbi.sberbank.ru:9443/ic/ufs/login.html",
+  },
+  "044525225": {
+    name: "Сбер",
+    logo: "./logos/sber.png",
+    url: "https://sbi.sberbank.ru:9443/ic/ufs/login.html",
+  },
+  "046614632": {
+    name: "Сбер",
+    logo: "./logos/sber.png",
+    url: "https://sbi.sberbank.ru:9443/ic/ufs/login.html",
+  },
+  "044030653": {
+    name: "Сбер",
+    logo: "./logos/sber.png",
+    url: "https://sbi.sberbank.ru:9443/ic/ufs/login.html",
+  },
+  "049205603": {
+    name: "Сбер",
+    logo: "./logos/sber.png",
+    url: "https://sbi.sberbank.ru:9443/ic/ufs/login.html",
+  },
+  "046015602": {
+    name: "Сбер",
+    logo: "./logos/sber.png",
+    url: "https://sbi.sberbank.ru:9443/ic/ufs/login.html",
+  },
+  "040813608": {
+    name: "Сбер",
+    logo: "./logos/sber.png",
+    url: "https://sbi.sberbank.ru:9443/ic/ufs/login.html",
+  },
+  "044525420": {
+    name: "Tochka",
+    logo: "./logos/tochka.png",
+    url: "https://id.tochka.com/",
+  },
+  "044525999": {
+    name: "Tochka",
+    logo: "./logos/tochka.png",
+    url: "https://id.tochka.com/",
+  },
+  "044525104": {
+    name: "Tochka",
+    logo: "./logos/tochka.png",
+    url: "https://id.tochka.com/",
+  },
+  "044525411": {
+    name: "VTB",
+    logo: "./logos/vtb.png",
+    url: "https://db.vtb.ru/login",
+  },
+  "044525700": {
+    name: "Raiffeisen",
+    logo: "./logos/raiffeisen.png",
+    url: "https://sso.rbo.raiffeisen.ru/signin",
+  },
+  "044525092": {
+    name: "Modul",
+    logo: "./logos/modul.png",
+    url: "",
+  },
+  // Добавьте остальные банки здесь
+};
 
 function handleFileUpload() {
   const fileInput = document.getElementById("file");
   const file = fileInput.files[0];
-
   const reader = new FileReader();
 
   let date = new Date();
   date = `${date.getHours()}:${String(date.getMinutes()).padStart(2, "0")}`;
 
   reader.onload = function (event) {
-    // bankIconWrapper.innerHTML = "";
     const fileContent = event.target.result;
     const lines = fileContent.split("\n");
 
     let imageAdded = false;
 
-    lines.forEach((line, index) => {
-      if (
-        !imageAdded &&
-        (line.includes("044525593") ||
-          line.includes("044030786") ||
-          line.includes("045004774"))
-      ) {
-        const img = document.createElement("img");
-        img.src = "./logos/alfa.png";
-        img.alt = "Alfa";
-        img.classList.add("logo-img");
-        bankIconWrapper.appendChild(img);
-        console.log("Альфа");
-        imageAdded = true; // Устанавливаем флаг, чтобы изображение добавлялось только один раз
-      }
-      if (!imageAdded && line.includes("044525974")) {
-        const img = document.createElement("img");
-        img.src = "./logos/tinkoff.png";
-        img.alt = "Tinkoff";
-        img.classList.add("logo-img");
-        bankIconWrapper.appendChild(img);
-        console.log(`Тинькофф`);
-        imageAdded = true;
-      }
-      if (
-        !imageAdded &&
-        (line.includes("047102651") ||
-          line.includes("044525225") ||
-          line.includes("044030653") ||
-          line.includes("049205603") ||
-          line.includes("046015602"))
-      ) {
-        const img = document.createElement("img");
-        img.src = "./logos/sber.png";
-        img.alt = "Sber";
-        img.classList.add("logo-img");
-        bankIconWrapper.appendChild(img);
-        console.log("Сбер");
-        imageAdded = true;
-      }
-      if (
-        !imageAdded &&
-        (line.includes("044525420") ||
-          line.includes("044525999") ||
-          line.includes("044525104"))
-      ) {
-        const img = document.createElement("img");
-        img.src = "./logos/tochka.png";
-        img.alt = "Tochka";
-        img.classList.add("logo-img");
-        bankIconWrapper.appendChild(img);
-        console.log("Точка");
-        imageAdded = true;
-      }
-      if (!imageAdded && line.includes("044525411")) {
-        const img = document.createElement("img");
-        img.src = "./logos/vtb.png";
-        img.alt = "VTB";
-        img.classList.add("logo-img");
-        bankIconWrapper.appendChild(img);
-        console.log("ВТБ");
-        imageAdded = true;
-      }
-      if (!imageAdded && line.includes("044525700")) {
-        const img = document.createElement("img");
-        img.src = "./logos/raiffeisen.png";
-        img.alt = "Raiffeisen";
-        img.classList.add("logo-img");
-        bankIconWrapper.appendChild(img);
-        console.log("Райфайзен");
-        imageAdded = true;
-      }
-    });
+    lines.some((line) => {
+      const bankKeys = Object.keys(bankData);
+      const foundBank = bankKeys.find((key) => line.includes(key));
 
-    console.log(`File scanning complete  ${date}`);
+      if (foundBank) {
+        const bank = bankData[foundBank];
+        let bankLinkItem = document.createElement("div");
+        let clsBtn = document.createElement("button");
+        const bankLink = document.createElement("a");
+        const img = document.createElement("img");
+        const time = document.createElement("span");
+
+        img.src = bank.logo;
+        img.alt = bank.name;
+        img.classList.add("logo-img");
+
+        time.textContent = date;
+
+        clsBtn.classList.add("bank-link-closebtn");
+        bankLinkItem.classList.add("bank-link-item");
+        bankLink.classList.add("bank-link");
+        bankLink.href = bank.url;
+        time.classList.add("logo-time");
+
+        bankLink.appendChild(img);
+        bankLinkItem.appendChild(clsBtn);
+        bankLinkItem.appendChild(bankLink);
+        bankLinkItem.appendChild(time);
+        bankIconWrapper.appendChild(bankLinkItem);
+
+        imageAdded = true;
+        return true; // Завершаем поиск после первого найденного банка
+      }
+      return false;
+    });
   };
 
   reader.readAsText(file);

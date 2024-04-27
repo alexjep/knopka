@@ -8,6 +8,10 @@ html {
   box-sizing: inherit;
 }
 
+a {
+  text-decoration: none;
+}
+
 button {
   position: relative;
   display: inline-block;
@@ -121,7 +125,7 @@ input {
 
 .result-label {
   position: absolute;
-  left: 3em;
+  left: 20em;
   top: -0.28em;
   background: #fff;
   padding: 0 0.5em;
@@ -135,16 +139,17 @@ input {
 }
 
 button.btn {
-font-family: "Arial", sans-serif;
-font-weight: 600;
-color: #382b22;
-text-transform: uppercase;
-padding: 1.25em 2em;
-background: #97cce7;
-border: 2px solid #6292a4;
-border-radius: 0.75em;
-transition: transform 0.15s;
-transform-style: preserve-3d;
+  font-size: 12px;
+  font-family: "Arial", sans-serif;
+  font-weight: 600;
+  color: #382b22;
+  text-transform: uppercase;
+  padding: 1.25em 1.7em;
+  background: #97cce7;
+  border: 2px solid #6292a4;
+  border-radius: 0.75em;
+  transition: transform 0.15s;
+  transform-style: preserve-3d;
 }
 
 button.btn::before {
@@ -216,6 +221,7 @@ button.btn.btnTA:hover {
   margin-bottom: 10px;
   border-radius: 1em;
   border: 2px solid #00000070;
+  box-shadow: 5px 4px 2px 1px rgb(67 158 188 / 20%);
 }
 
 .scanner-group {
@@ -292,10 +298,57 @@ button.btn.btnTA:hover {
 }
 
 .bank-icon-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
   height: 50px;
   width: 50px;
 }
 
+.bank-link-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bank-link-item:hover .bank-link-closebtn {
+  /* visibility: visible; */
+  opacity: 1;
+}
+
+.bank-link {
+  display: block;
+  height: 50px;
+}
+
+.bank-link-closebtn {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  border-radius: 10px;
+  right: -5px;
+  top: -4px;
+  background-image: url(./icon/icon-closebtn.png);
+  background-size: cover;
+  /* visibility: hidden; */
+  opacity: 0;
+  transition: opacity ease-in-out 0.3s;
+}
+
 .logo-img {
   max-height: 100%;
+  padding: 2px;
+  border-radius: 10px;
+  border: solid 2px #6292a4;
+  box-shadow: 5px 4px 2px 1px rgb(67 158 188 / 20%);
+}
+
+.logo-time {
+  border-radius: 10px;
+  font-family: sans-serif;
+  font-size: smaller;
+  color: #6292a4;
+  text-align: center;
+  box-shadow: 5px 4px 2px 1px rgb(67 158 188 / 20%);
 }
